@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="description" content="WhatsApp-Tool - Start Chat Without Saving Number" />
+	<meta name="theme-color" content="#128C7E" />
+	<meta name="msapplication-TileColor" content="#128C7E" />
+	<meta name="msapplication-TileImage" content="./images/logo-192.png" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="apple-mobile-web-app-title" content="WhatsApp-Tool" />
+	<meta name="application-name" content="WhatsApp-Tool" />
+	<link rel="apple-touch-icon" href="./images/logo-192.png" />
+	<link rel="icon" type="image/png" href="./images/logo-192.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="./images/logo-192.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="./images/fav.png" />
+	<title>Whatsapp-tool - Start Chat Without Saving Number</title>
+	<link rel="manifest" href="./manifest.json" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+	<link rel="stylesheet" href="./country_selector/css/intlTelInput.min.css" />
+	<link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+	<main>
+		<header>
+			<div class="logo-section">
+				<a href="/index.html">
+					<img src="./images/logo.png" class="logo-img" alt="WhatsApp-Tool" title="Start Chat Without Saving Number" />
+				</a>
+				<a href="/index.html">
+					<span class="logo-text">WhatsApp-Tool</span>
+				</a>
+			</div>
+		</header>
+		<section class="main-input">
+			<h1 class="mb-1">Start WhatsApp Chat Without Saving Phone Number</h1>
+			<hr />
+			<form id="form" class="mt-2">
+				<p class="mb-1 phone-text unselectable">
+					<sup>*</sup>Start chat with
+				</p>
+				<input id="phone" name="phone" type="tel" />
+				<p class="mt-2 mb-1 message unselectable">
+					With some initial message? (Optional)
+				</p>
+				<input id="message" placeholder="Start with some message" name="message" type="text" />
+				<button type="submit" class="submit-button">Start</button>
+			</form>
+
+			<span class="caution unselectable">this tool is NOT from WhatsApp</span>
+		</section>
+	</main>
+
+	<script>
+		// If browser supports Service Worker..
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker
+				.register('./sw.js')
+				.then(() => console.log('SW Registered'))
+				.catch(error => console.log('SW Registration Failed: :^(', error));
+		}
+	</script>
+	<script src="./country_selector/js/intlTelInput.min.js"></script>
+	<script>
+		const input = document.querySelector('#phone');
+		window.intlTelInput(input, {
+			autoPlaceholder: 'off',
+			dropdownContainer: document.body,
+			hiddenInput: 'full_number',
+			initialCountry: 'pk',
+			nationalMode: false,
+			preferredCountries: ['pk', 'us', 'gb', 'in'],
+			separateDialCode: true,
+			utilsScript: './country_selector/js/utils.js'
+		});
+	</script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+	<script src="./js/script.js"></script>
+</body>
+
+</html>

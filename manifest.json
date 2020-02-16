@@ -1,0 +1,26 @@
+{
+	"short_name": "WhatsApp-Tool",
+	"name": "WhatsApp-Tool",
+	"version": "0.1.1",
+	"description": "WhatsApp-Tool - Start Chat Without Saving Number",
+	"author": "Muhammad Ovi",
+	"github": "https://github/Ovi",
+	"icons": [
+		{
+			"src": "/images/logo-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "/images/logo-512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": "./index.html",
+	"display": "standalone",
+	"theme_color": "#005582",
+	"background_color": "#ffff",
+	"gcm_sender_id": "472262818659",
+	"gcm_user_visible_only": true
+}
